@@ -1,0 +1,265 @@
+
+
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}  
+<style type="text/css">
+:root {
+  --Sniglet-font: "Sniglet", cursive;
+  --Rubik: "Rubik", cursive;
+  --Patua: "Patua One", cursive;
+  --Lobster: "lobster", cursive;
+  --light-black: #2e2c2caf;
+  --bggradient: linear-gradient(to bottom, #dd2476, #ff512f);
+  --light-gray: rgba(255, 255, 255, 0.877);
+}
+
+.header {
+  font-family: Patua One;
+  color: #357ab7;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 50px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 6px 6px 6px #c9c6c6;
+  display: block;
+  font-weight: bolder;
+  font-size: 40px;
+} 
+
+.cover {
+  width: 100%;
+  height: 80vmin;
+  background: black;
+  margin-bottom: 8px;
+
+  /* fallback for old browsers */
+  font-family: Patua One;
+  background-position: -24rem -19rem;
+  background-size: 150%;
+  position: relative;
+}
+
+
+
+.header1 {
+  font-family: Patua One;
+  color: #357ab7;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  text-align: center;
+  width: 100%;
+  text-shadow: 6px 6px 6px #c9c6c6;
+  display: block;
+  font-weight: bolder;
+  font-size: 30px;
+}
+.patua{
+  font-family: Patua One;
+  font-size: 40px;
+}
+</style>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-7 col-sm-12">
+          <h1 class="header">RedRock</h1>
+          <h5 class="header1">Inventory Management System</h5>
+          
+        </div>
+        <div class="col-md-5 col-sm-12  h-25">
+          <img src="{% static 'assets/finance.png' %}" alt="calc" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section-1">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="pray">
+              <img src="{% static 'assets/calculator.jpg' %}" alt="Pray" class="" />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="panel text-left">
+              <h1>About</h1>
+              <p class="patua">
+                {{ setting.aboutus | safe }}
+              </p>
+              <h6>For more info about RedRock Technologies Ltd <a href=" https://redrockng.com/about.html">Visit</a></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      
+
+
+      <div class="purchase text-center">
+        <h1>Select Your Prefered Payment</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <div class="cards">
+          <div class="d-flex flex-row justify-content-center flex-wrap">
+            <div class="card">
+              <div class="card-body">
+                <div class="title">
+                  <h5 class="card-title">Monthly Plan</h5>
+                </div>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in.
+                </p>
+                <div class="pricing">
+                  <h1>‎₦7799</h1>
+                  <a href="Payment.html" class="btn btn-dark px-5 py-2 primary-btn mb-5">Purchase Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <div class="title">
+                  <h5 class="card-title">6 Months Plan</h5>
+                </div>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in.
+                </p>
+                <div class="pricing">
+                  <h1>‎₦99990</h1>
+                  <a href="Payment.html" class="btn btn-dark px-5 py-2 primary-btn mb-5">Purchase Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <div class="title">
+                  <h5 class="card-title">1 Year Plan</h5>
+                </div>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in.
+                </p>
+                <div class="pricing">
+                  <h1>‎₦5899</h1>
+                  <a href="Payment.html" class="btn btn-dark px-5 py-2 primary-btn mb-5">Purchase Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Section 4 -->
+    <section class="section-4">
+      <div class="container text-center">
+        <h1 class="text-dark">Features and Benefits</h1>
+        <p class="text-secondary">Those using our Inventory System will benefit from these features</p>
+      </div>
+      <div class="team row ">
+        <div class="col-md-4 col-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                
+
+                <div class="card-body">
+                  <h3 class="card-title">Add Inventory</h3>
+                  <p class="card-text">
+                    Easily add new products to your store. Generate unique identification codes to sort your products by name, category, manufacturing country, expiration dates and more.
+                  </p>
+                  <a href="/features" class="text-center"><button class="btn btn-dark px-5 py-2 primary-btn mb-5">view more</button></a>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+                <div class="carousel-inner text-center">
+                  <div class="carousel-item active">
+                    <div class="card mr-2 d-inline-block shadow">
+                      
+                      <div class="card-body">
+                        <h3 class="card-title">Order Management</h3>
+                        <p class="card-text">
+                          With advanced order management capabilities, RedRock IMS helps you manage your product from purchase to sale.  Prevent costly stock outs with our dynamic reordering, consolidate your sales, and understand your gross margins by knowing your landed costs.
+                        </p>
+                        <a href="/features" class="text-center"><button class="btn btn-dark px-5 py-2 primary-btn mb-5">view more</button></a>
+                       
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="card  d-inline-block mr-2 shadow">
+                      
+                      <div class="card-body">
+                        <h3 class="card-title">Cost savings</h3>
+                        <p class="card-text">
+                          Every business’ inventory/product stock represents one of its largest investments. Our Inventory Management Software helps companies cut expenses by minimizing the amount of unnecessary parts and products in storage. It also helps companies keep lost sales to a minimum by having enough stock on hand to meet demand. We also eliminate the need for businesses to hire a large IT workforce by taking care of maintaining the inventory software and providing 99.99% uptime for our clients.
+                        </p>
+                        <a href="/features" class="text-center"><button class="btn btn-dark px-5 py-2 primary-btn mb-5">view more</button></a>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card  d-inline-block mr-2 shadow">
+                      
+                      <div class="card-body">
+                        <h3 class="card-title">Real-Time Inventory Control & Sync:</h3>
+                        <p class="card-text">
+                          Take the guesswork and busywork out of tracking your inventory. Instead, get real-time counts for all your items across all your sales channels in one place. Search or scan to get counts, set low stock alerts, and see sales figures.
+                        </p>
+                        <a href="/features" class="text-center"><button class="btn btn-dark px-5 py-2 primary-btn mb-5">view more</button></a>
+                        
+                      </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+        </div>
+        <div class="col-md-4 col-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                
+                <div class="card-body">
+                  <h3 class="card-title">Real-Time Notifications:</h3>
+                  <p class="card-text">
+                    Receive alerts and notifications when there’s over- or under-stocking beyond a defined threshold or if a product is close to expiration date. This helps you to place orders or offer promotional discounts to clear out extra stock.
+                  </p>
+                  <a href="/features" class="text-center"><button class="btn btn-dark px-5 py-2 primary-btn mb-5">view more</button></a>
+                  
+                </div>
+              </div>
+        </div>
+      </div>
+    </section>
+
+
+  <section class="section-4">
+      <div class="container text-center">
+
+
+        
+      </div>
+      <div class="team row ">
+        <div class="col-md-12 col-12 text-center">
+            <div class="card mr-2 d-inline-block shadow-lg">
+                
+
+                <div class="card-body">
+                  <h3 class="card-title">Business Growth</h3>
+                  <p class="card-text">
+                    Business Growth: We have partnered with our subsidiary RedRock Finance (add the link to redrock finance here) to offer faster access to business loans for RedRock IMS Merchants. You can apply for loans up to 5 million Naira to grow your business directly from your account dashboard.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </main>
+{% endblock %}

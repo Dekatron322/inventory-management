@@ -1,0 +1,125 @@
+<style>
+.table{
+  font-size: 13px;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  
+}
+
+.table th{
+  background-color: black !important;
+  color: white;
+}
+
+.table tr:nth-child(odd){
+  background-color: #BBCAE4 !important;
+}
+
+.table tr:nth-child(even){
+  background-color: #dae5f4;
+}
+
+.display_table{
+  border-bottom-right-radius: 20px;
+  padding-left: 2px !important;
+  padding-right: 2px;
+  padding-bottom: 20px;
+
+  box-shadow: 12px 12px 20px 6px #2e6da4;
+
+}
+
+.header{
+  font-family: Patua One;
+  color: #357ab7;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 50px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 6px 6px 6px #c9c6c6;
+  display: block;
+  font-weight: bolder;
+  font-size: 40px;
+}
+</style>
+
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+	{% for message in messages %}
+		<div class="alert alert-{{message.tags}}" role="alert">
+	{{ message }}
+		</div>
+	{% endfor %}
+	{% endif %}
+
+
+	<br>
+  
+
+</header>
+  <main>
+  	
+    <section class="section-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-6">
+            <div class="text-center header">{{title}}</div><br>
+
+            <form class="col-md-5" method='POST' action=''>
+              {% csrf_token %}
+                {{form|crispy}}
+                   
+                   <input type="submit" value="Search" class="form-control bg-dark text-white" id="inlineFormInputGroupUsername2" placeholder="">
+
+            </form>
+            <br>
+            <div class="display_table">
+            <table class="table">
+              <thead>
+              <tr>
+              <th>Count</th>
+              <th>Category</th>
+              <th>Barcode</th>
+              <th>Item Name</th>
+              <th>Price</th>
+              <th>Quantity in Store</th>
+              <th>Quantity Sold</th>
+              <th>Amount</th>
+              <th>Item reoder Level</th>
+              <th></th>
+              </tr>
+              </thead>
+              {% for instance in queryset %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{instance.category}}</td>
+                <td>{{instance.barcode}}</td>
+                <td><a href="{% url 'update_items' instance.id %}"><strong>{{instance.item_name}}</strong></a></td>
+                <td> ₦{{instance.price}}</td>
+                <td>{{instance.quantity}}</td>
+                <td>{{instance.sold_quantity}}</td>
+                <td>{{instance.amount}}</td>
+                <td>{{instance.reorder_level}}</td>
+                <td><a href="{% url 'sell_inventory' instance.id %}">Sell</a></td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+          <br>
+              <button class="btn btn-secondary">Set Re-order level</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    
+  </main>
+
+{% endblock %}

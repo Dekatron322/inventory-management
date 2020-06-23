@@ -1,0 +1,146 @@
+<style>
+.table{
+  font-size: 13px;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  
+}
+
+.table th{
+  background-color: black !important;
+  color: white;
+}
+
+.table tr:nth-child(odd){
+  background-color: #BBCAE4 !important;
+}
+
+.table tr:nth-child(even){
+  background-color: #dae5f4;
+}
+
+.display_table{
+  border-bottom-right-radius: 20px;
+  padding-left: 2px !important;
+  padding-right: 2px;
+  padding-bottom: 20px;
+
+  box-shadow: 12px 12px 20px 6px #2e6da4;
+
+}
+
+.header{
+  font-family: Patua One;
+  color: #357ab7;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 50px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 6px 6px 6px #c9c6c6;
+  display: block;
+  font-weight: bolder;
+  font-size: 40px;
+}
+</style>
+
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+	{% for message in messages %}
+		<div class="alert alert-{{message.tags}}" role="alert">
+	{{ message }}
+		</div>
+	{% endfor %}
+	{% endif %}
+
+
+	<br>
+  
+
+</header>
+<br>
+  <main>
+    <section>
+      <div class="container text-center">
+        <div class="row">
+          
+          <div class="col-md-6">
+          <h5 class="header">Sales Track</h5>
+          <hr>
+
+          <form class="form-inline">
+            <div class="col pl-0">
+              <table class="table display_table">
+              <thead>
+              <tr>
+              <th>Count</th>
+              <th>Category</th>
+              <th>Item Name</th>
+              <th>Price</th>
+              <th>Quantity added</th>
+              <th>Total</th>
+              </tr>
+              </thead>
+              {% for instance in queryset %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{instance.category}}</td>
+                <td><a href="{% url 'update_items' instance.id %}"><strong>{{instance.item_name}}</strong></a></td>
+                <td> ₦{{instance.price}}</td>
+                <td>{{instance.quantity}}</td>
+                <td>₦{{instance.total}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+           </div>
+          </form>
+          <button class="btn btn-primary"><h6>sales expenditure = {{maintotal}} </h6></button>
+          <br>
+          </div>
+          <div class="col-md-6">
+          <h4 class="header">Income Track</h4>
+          <hr>
+          <form class="form-inline">
+            <table class="table display_table">
+            <div class="col-md-6">  
+              <thead>
+              <tr>
+              <th>Count</th>
+              <th>Category</th>
+              <th>Item Name</th>
+              <th>Price</th>
+              <th>Quantity Sold</th>
+              <th>Income</th>
+              </tr>
+              </thead>
+              {% for instance in queryset %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{instance.category}}</td>
+                <td><a href="{% url 'update_items' instance.id %}"><strong>{{instance.item_name}}</strong></a></td>
+                <td> ₦{{instance.price}}</td>
+                <td>{{instance.sold_quantity}}</td>
+                <td>₦{{instance.sub_total}}</td>
+              </tr>
+              {% endfor %}
+            </div>
+            </table>
+          </form>
+          
+          <button class="btn btn-primary"><h6>sales income = {{subtotal}} </h6></button>
+          
+          <br>
+          
+        </div>
+          </div>
+
+    </section>
+    <br>
+    
+  </main>
+
+{% endblock %}
